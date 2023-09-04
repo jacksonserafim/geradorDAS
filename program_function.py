@@ -50,32 +50,23 @@ class ProgramFunction:
     def execute(self, cnpj):
         self.driver.get('https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao')
         self.wait.until(lambda x: x.find_element(By.ID, 'cnpj')).send_keys(cnpj)
-        if self.driver.until(lambda x: x.find_element(By.ID, 'toast-container')):
-            from program_ui import MainWindow
-            msg = MainWindow()
-            title = 'SCript Detectado'
-            message = f'Tente novamente'
-            icon = 1
-            msg.window_alert(title, message, icon)
+        self.wait.until(lambda x: x.find_element(By.ID, 'continuar')).click()
 
-        else:
-            self.wait.until(lambda x: x.find_element(By.ID, 'continuar')).click()
+        self.wait.until(lambda x: x.find_element(By.XPATH, '//*[@id="navbarCollapse"]/ul[1]/li[2]/a')).click()
+        self.wait.until(lambda x: x.find_element(By.XPATH,
+                                                 '/html/body/div[1]/section[3]/div/div/div/div/div/form/div/div/button')).click()
+        self.wait.until(lambda x: x.find_element(By.XPATH, f"//*[contains(text(), '{self.year}')]")).click()
+        self.wait.until(
+            lambda x: x.find_element(By.XPATH, '/html/body/div[1]/section[3]/div/div/div/div/div/form/button')).click()
+        self.wait.until(
+            lambda x: x.find_element(By.XPATH,
+                                     f'//*[@id="resumoDAS"]/table/tbody[{self.monthsKey[self.month]}]/tr/td[1]/input')).click()
+        self.wait.until(lambda x: x.find_element(By.ID, 'btnEmitirDas')).click()
 
-            self.wait.until(lambda x: x.find_element(By.XPATH, '//*[@id="navbarCollapse"]/ul[1]/li[2]/a')).click()
-            self.wait.until(lambda x: x.find_element(By.XPATH,
-                                                     '/html/body/div[1]/section[3]/div/div/div/div/div/form/div/div/button')).click()
-            self.wait.until(lambda x: x.find_element(By.XPATH, f"//*[contains(text(), '{self.year}')]")).click()
-            self.wait.until(
-                lambda x: x.find_element(By.XPATH, '/html/body/div[1]/section[3]/div/div/div/div/div/form/button')).click()
-            self.wait.until(
-                lambda x: x.find_element(By.XPATH,
-                                         f'//*[@id="resumoDAS"]/table/tbody[{self.monthsKey[self.month]}]/tr/td[1]/input')).click()
-            self.wait.until(lambda x: x.find_element(By.ID, 'btnEmitirDas')).click()
-
-            self.wait.until(lambda x: x.find_element(By.XPATH,
-                                                     '/html/body/div[1]/section[3]/div/div/div[1]/div/div/div[3]/div/div/a[1]')).click()
-            self.wait.until(lambda x: x.find_element(By.XPATH, '// *[ @ id = "toast-container"] / div / button')).click()
-            sleep(2)
+        self.wait.until(lambda x: x.find_element(By.XPATH,
+                                                 '/html/body/div[1]/section[3]/div/div/div[1]/div/div/div[3]/div/div/a[1]')).click()
+        self.wait.until(lambda x: x.find_element(By.XPATH, '// *[ @ id = "toast-container"] / div / button')).click()
+        sleep(2)
 
     def close_driver(self):
         self.driver.quit()
