@@ -3,6 +3,14 @@ from PyQt6 import QtGui
 from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from program_function import ProgramFunction
+import sys
+import os
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 
 class MainWindow(QMainWindow):
@@ -11,8 +19,8 @@ class MainWindow(QMainWindow):
         # LoadUI
         super(MainWindow, self).__init__()
         self.path = None
-        self.setWindowIcon(QtGui.QIcon('src/logo.png'))
-        loadUi('src/geradorDASgui.ui', self)
+        self.setWindowIcon(QtGui.QIcon(resource_path('src/icon.ico')))
+        loadUi(resource_path('src/geradorDASgui.ui'), self)
         self.show()
 
         months = ['Janeiro', 'Fevereiro', 'Março',
@@ -33,7 +41,7 @@ class MainWindow(QMainWindow):
             self,
             caption="Selecione a planilha",
             filter="Planilhas (*.xls *.xlsx)",
-            directory='C:'
+            directory='C:/'
         )
         if filename:
             self.path = Path(filename)
