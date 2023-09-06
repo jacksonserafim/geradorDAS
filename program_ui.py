@@ -47,43 +47,42 @@ class MainWindow(QMainWindow):
             self.path = Path(filename)
             self.filePath.setText(f'Planilha: {self.path}')
             self.fileSelectorBtn.setText('Trocar documento')
+            self.startBtn.setEnabled(True)
 
     def start_script(self):
+        month = self.monthOptions.currentText()
+        year = self.yearOptions.currentText()
+        column = self.columnEntry.value()
+        headless = self.headlessCheck.isChecked()
         try:
-            month = self.monthOptions.currentText()
-            year = self.yearOptions.currentText()
-            column = self.columnEntry.value()
-            headless = self.headlessCheck.isChecked()
-            try:
-                ProgramFunction(file_dir=self.path, month_var=month, year_var=year, column_entry=column,
-                                headless_var=headless)
-            except Exception as e:
-                title = 'Erro'
-                message = f'Erro ao iniciar ou executar o script {e}'
-                icon = 1
-                self.window_alert(title, message, icon)
+            ProgramFunction(file_dir=self.path, month_var=month, year_var=year, column_entry=column,
+                            headless_var=headless)
+        except Exception as e:
+            print(e)
+            title = 'Erro'
+            message = f'Erro ao iniciar ou executar o script'
+            icon = 1
+            window_alert(title, message, icon)
 
+
+        else:
             title = 'Concluído'
             message = 'Todos os DAS emitidos e downloads concluídos'
             icon = 0
-            self.window_alert(title, message, icon)
-        except Exception as e:
-            title = 'Erro'
-            message = f'Erro ao iniciar ou executar o script {e}'
-            icon = 1
-            self.window_alert(title, message, icon)
+            window_alert(title, message, icon)
 
-    def window_alert(self, title, message, icon):
-        msg = QMessageBox(parent=self)
-        msg.setWindowTitle(f'{title}')
-        msg.setText(f'{message}')
-        match icon:
-            case 0:
-                msg.setIcon(QMessageBox.Icon.Information)
-            case 1:
-                msg.setIcon(QMessageBox.Icon.Warning)
-            case 2:
-                msg.setIcon(QMessageBox.Icon.Critical)
-            case 3:
-                msg.setIcon(QMessageBox.Icon.Question)
-        msg.show()
+
+def window_alert(title, message, icon):
+    msg = QMessageBox()
+    msg.setWindowTitle(f'{title}')
+    msg.setText(f'{message}')
+    match icon:
+        case 0:
+            msg.setIcon(QMessageBox.Icon.Information)
+        case 1:
+            msg.setIcon(QMessageBox.Icon.Warning)
+        case 2:
+            msg.setIcon(QMessageBox.Icon.Critical)
+        case 3:
+            msg.setIcon(QMessageBox.Icon.Question)
+    msg.exec()
