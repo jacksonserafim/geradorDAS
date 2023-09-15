@@ -1,7 +1,7 @@
 # :rocket: GeradorDAS
 
 O **GeradorDAS** é uma ferramenta para automatizar a geração de Documentos de Arrecadação do Simples Nacional (DAS) a partir de uma planilha de CNPJs. Esta ferramenta utiliza Selenium para automatizar o processo de geração de DAS no site da Receita Federal.
-O projeto ainda está em desenvolvimento e possui várias falhas e bugs, pois fiz com o intuito de ajudar um amigo e de quebra desenvolver minhas habilidades com Python, POO, automação e etc, qualquer sugestão ou dica é bem-vindo.
+O projeto continua em desenvolvimento e possui várias falhas e bugs, pois fiz com o intuito de ajudar um amigo e de quebra desenvolver minhas habilidades com Python, POO, automação e etc. Qualquer sugestão ou dica é bem-vindo. Confira a [Política de Privacidade](https://www.hcaptcha.com/privacy) e [Termos de Serviço Master](https://www.hcaptcha.com/terms) do hCaptcha (utilizados no site [PGMEI](https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao)) antes de utilizar o script indevidamente. Este repositório serve como estudo e repasse de conhecimento além de tudo.
 <p align="center">
   <img src="https://i.imgur.com/u1Zevjg.png?1" alt="Imagem da interface do Script">
 </p>
@@ -47,7 +47,7 @@ Para executar o GeradorDAS, siga estas etapas:
    python main.py
    ```
 
-2. A interface gráfica será exibida, onde você poderá selecionar a planilha de CNPJs, o mês e o ano desejados. Também é possível escolher para que seja executado em segundo plano.
+2. A interface gráfica será exibida, onde você poderá selecionar a planilha de CNPJs, o mês e o ano desejados. Também é possível escolher para ser executado em segundo plano.
 
 3. Clique no botão "Iniciar" para iniciar o processo de geração de DAS.
 
@@ -62,3 +62,7 @@ Para executar o GeradorDAS, siga estas etapas:
 ## :handshake: Contribuição
 
 Se você deseja contribuir para o projeto, sinta-se à vontade para criar um fork deste repositório, fazer as alterações necessárias.
+
+## :page_with_curl: Licença
+
+Este projeto é licenciado sob a [Licença MIT](LICENSE), o que significa que você pode usá-lo, modificá-lo e distribuí-lo livremente, desde que mantenha os avisos de licença originais.
