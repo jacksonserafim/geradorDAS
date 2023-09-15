@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
             print(e)
             title = 'Erro'
             message = f'Erro ao iniciar ou executar o script'
-            icon = 1
+            icon = 2
             window_alert(title, message, icon)
 
 
