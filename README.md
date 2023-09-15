@@ -65,4 +65,4 @@ Se você deseja contribuir para o projeto, sinta-se à vontade para criar um for
 
 ## :page_with_curl: Licença
 
-Este projeto é licenciado sob a [Licença MIT](LICENSE), o que significa que você pode usá-lo, modificá-lo e distribuí-lo livremente, desde que mantenha os avisos de licença originais.
+Este projeto é distribuído sob a [Licença Pública Geral GNU versão 3 (GPLv3)](LICENSE), o que significa que você tem liberdade para usar, modificar e distribuir o código fonte de acordo com os termos da licença GPLv3. Certifique-se de ler e entender os termos da licença antes de usar ou contribuir para este projeto.
