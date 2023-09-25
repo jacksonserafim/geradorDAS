@@ -8,6 +8,8 @@ O projeto continua em desenvolvimento e possui várias falhas e bugs, pois fiz c
 
 ## :gear: Como usar
 
+Basta usar uma planilha que contenha os dados de CNPJ, mês e ano que deseja gerar e por fim selecionar inserir o valor da coluna (Coluna A valor 0, Coluna B valor 1, etc...)
+
 ### :white_check_mark: Pré-requisitos
 
 Certifique-se de ter os seguintes requisitos instalados antes de usar o GeradorDAS:
