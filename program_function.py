@@ -38,7 +38,7 @@ class ProgramFunction:
             self.window_alert(title, message, icon)
             self.driver.quit()
         else:
-            self.driver = uc.Chrome(headless=self.headless, version_main=116)
+            self.driver = uc.Chrome(headless=self.headless, version_main=118)
             self.driver.maximize_window()
             self.wait = WebDriverWait(self.driver, 10)
             self.iterate(spreadsheet)
